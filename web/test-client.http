@@ -1,0 +1,33 @@
+@baseUrl = http://localhost
+@port = 5000
+@apiUrl = {{baseUrl}}:{{port}}/api
+
+@token = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImhhbGllQG1haWwuY29tIiwicGFzc3dvcmQiOiIkMmIkMTAkQ2ttd0JlZkNIbjlsdnJNQmVmL3pUT0JNZnhJUUhaSTZkREcuUnlBMzZ4R0l0ZVRSV2tZZFciLCJyb2xlcyI6WyJhZG1pbiIsImJlc3RGcmllbmQiXSwiaWQiOjAsImlhdCI6MTY3NzQ0NTIyMX0.0Rzlje0KbNgC-oI-ejLhcCuFDQ8i8ChdiwIUoNLyc5g
+
+GET {{apiUrl}}/user
+Authorization: Bearer {{token}}
+
+###
+GET {{apiUrl}}/user/0
+
+###
+POST {{apiUrl}}/auth/login
+Content-Type: application/json
+
+{
+    "email": "halie@mail.com",
+    "password": "123456"
+}
+
+###
+POST {{apiUrl}}/auth/register
+Content-Type: application/json
+
+{
+    "email": "halie@mail.com",
+    "password": "123456",
+    "roles": ["admin", "bestFriend"]
+}
+
+###
+DELETE {{apiUrl}}/user/1
